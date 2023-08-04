@@ -20,10 +20,14 @@
         background-color: rgba(22, 24, 35, 0.03);
     }
 }
+.menu-body-wrapper {
+    overflow-y: auto;
+}
 
 // header
 
 .header {
+    flex-shrink: 0;
     position: relative;
     height: 50px;
     margin-top: -8px;

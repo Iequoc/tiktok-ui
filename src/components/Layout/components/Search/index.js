@@ -49,42 +49,54 @@ function Search() {
         setShowResults(false);
     };
 
-    return (
-        <HeadlessTippy
-            interactive
-            visible={showResults && searchResults.length > 0}
-            render={(attrs) => (
-                <div className={cx('search-results')} tabIndex="-1" {...attrs}>
-                    <PopperWrapper>
-                        <h4 className={cx('search-title')}>Accounts</h4>
-                        {searchResults.map((results) => (
-                            <AccountItem key={results.id} data={results} />
-                        ))}
-                    </PopperWrapper>
-                </div>
-            )}
-            onClickOutside={handleHideResults}
-        >
-            <div className={cx('search')}>
-                <input
-                    ref={inputRef}
-                    value={searchText}
-                    placeholder="Search account or videos"
-                    onChange={(e) => setSearchText(e.target.value)}
-                    onFocus={() => setShowResults(true)}
-                />
-                {!!searchText && !loading && (
-                    <button className={cx('clear')} onClick={handleClear}>
-                        <FontAwesomeIcon icon={faCircleXmark} />
-                    </button>
-                )}
+    const handleChanges = (e) => {
+        const searchValue = e.target.value;
+        if (!searchValue.startsWith(' ')) {
+            setSearchText(searchValue);
+        }
+    };
 
-                {loading && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}
-                <button className={cx('search-button')}>
-                    <FontAwesomeIcon icon={faMagnifyingGlass} />
-                </button>
-            </div>
-        </HeadlessTippy>
+    return (
+        //Thẻ div dùng để tránh đi các lỗi của thư viện Tippy
+        // Interactive tippy element may not be accessible via keyboard navigation
+        // because it is not directly after the reference element in the DOM source order.
+        <div>
+            <HeadlessTippy
+                interactive
+                visible={showResults && searchResults.length > 0}
+                render={(attrs) => (
+                    <div className={cx('search-results')} tabIndex="-1" {...attrs}>
+                        <PopperWrapper>
+                            <h4 className={cx('search-title')}>Accounts</h4>
+                            {searchResults.map((results) => (
+                                <AccountItem key={results.id} data={results} />
+                            ))}
+                        </PopperWrapper>
+                    </div>
+                )}
+                onClickOutside={handleHideResults}
+            >
+                <div className={cx('search')}>
+                    <input
+                        ref={inputRef}
+                        value={searchText}
+                        placeholder="Search account or videos"
+                        onChange={handleChanges}
+                        onFocus={() => setShowResults(true)}
+                    />
+                    {!!searchText && !loading && (
+                        <button className={cx('clear')} onClick={handleClear}>
+                            <FontAwesomeIcon icon={faCircleXmark} />
+                        </button>
+                    )}
+
+                    {loading && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}
+                    <button className={cx('search-button')} onMouseDown={(e) => e.preventDefault()}>
+                        <FontAwesomeIcon icon={faMagnifyingGlass} />
+                    </button>
+                </div>
+            </HeadlessTippy>
+        </div>
     );
 }
 
