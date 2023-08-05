@@ -1,6 +1,6 @@
 .search,
 .search-results {
-    width: 361px;
+    width: 500px;
 }
 .search {
     position: relative;
@@ -37,7 +37,11 @@
     &:focus-within {
         border-color: rgba(22, 24, 35, 0.2);
     }
+    &:hover {
+        border-color: rgba(22, 24, 35, 0.2);
+    }
 }
+
 .search-title {
     padding: 5px 12px;
     font-size: 1.4rem;

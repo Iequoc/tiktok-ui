@@ -8,6 +8,7 @@ import {
     faEllipsisVertical,
     faGear,
     faKeyboard,
+    faPlus,
     faSignOut,
     faUser,
 } from '@fortawesome/free-solid-svg-icons';
@@ -15,7 +16,7 @@ import 'tippy.js/dist/tippy.css';
 import { Link } from 'react-router-dom';
 
 import styles from './Header.module.scss';
-import { Inboxs, Messages, UploadIcon } from '~/components/Icons';
+import { Inboxs, Messages } from '~/components/Icons';
 import images from '~/assets/images';
 import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
@@ -84,8 +85,8 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <div className={cx('logo')}>
-                    <Link to={config.routes.home}>
+                <div>
+                    <Link className={cx('logo')} to={config.routes.home}>
                         <img src={images.logo} alt="TikTok" />
                     </Link>
                 </div>
@@ -94,11 +95,14 @@ function Header() {
                 <div className={cx('actions')}>
                     {userCurrent ? (
                         <>
-                            <Tippy delay={[0, 50]} content="Messages" placement="bottom">
-                                <button className={cx('user-btn')}>
-                                    <UploadIcon />
-                                </button>
-                            </Tippy>
+                            <Button
+                                leftIcon={<FontAwesomeIcon icon={faPlus} />}
+                                outline
+                                small
+                                className={cx('custom-btn-upload')}
+                            >
+                                Upload
+                            </Button>
                             <Tippy delay={[0, 50]} content="Messages" placement="bottom">
                                 <button className={cx('user-btn')}>
                                     <Messages />
