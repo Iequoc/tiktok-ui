@@ -8,6 +8,7 @@
     --black: #000;
     --text-color: #333;
     --font-family: 'TikTokFont', sans-serif;
+    --background-color-hover: rgba(22, 24, 35, 0.03);
 }
 * {
     margin: 0;
@@ -49,7 +50,7 @@ input,
     border: none;
 }
 
-a[href] {
+a {
     color: var(--text-color);
     text-decoration: none;
 }

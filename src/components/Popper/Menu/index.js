@@ -54,7 +54,7 @@ function Menu({ items = [], children, hideOnClick = false }) {
                     </PopperWrapper>
                 </div>
             )}
-            onHide={() => setHistoryPage((prev) => prev.slice(0, 1))}
+            onHide={() => setHistoryPage((prev) => prev.slice(0, 1))} // reset về trang đầu tiên kho hover của phần menu
         >
             {children}
         </Tippy>
