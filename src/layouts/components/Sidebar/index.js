@@ -34,7 +34,7 @@ function SideBar() {
             <Menu>
                 <MenuItem title="For you" to={config.routes.home} icon={<HomeIcon />} />
                 <MenuItem title="Following" to={config.routes.following} icon={<GroupUserIcon />} />
-                <MenuItem title="Live" to={config.routes.live} icon={<LiveIcon />} />
+                <MenuItem title="LIVE" to={config.routes.live} icon={<LiveIcon />} />
             </Menu>
 
             <SuggestedAccounts title="Suggested accounts" data={suggestedUsers} onSeeAll={handleSeeAll} />

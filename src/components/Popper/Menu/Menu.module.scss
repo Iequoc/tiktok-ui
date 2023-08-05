@@ -1,16 +1,16 @@
 .menu-list {
-    width: 224px;
-
+    width: 300px;
     .menu-item {
-        font-size: 1.4rem;
+        font-size: 1.6rem;
         margin-left: 0;
     }
 }
 
 .menu-item {
+    font-weight: 600;
+    line-height: 2.1rem;
     width: 100%;
     justify-content: flex-start;
-    line-height: 1.8rem;
 
     &.separate {
         border-top: 1px solid rgba(22, 24, 35, 0.12);
@@ -21,6 +21,7 @@
     }
 }
 .menu-body-wrapper {
+    min-width: 223px;
     overflow-y: auto;
 }
 
