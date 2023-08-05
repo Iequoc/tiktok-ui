@@ -2,6 +2,7 @@ import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import PropTypes from 'prop-types';
 
 import Images from '~/components/Images';
 import styles from './AccountItem.module.scss';
@@ -22,5 +23,9 @@ function AccountItem({ data }) {
         </Link>
     );
 }
+// Validate cho component AccountItem, các dữ liệu truyền vào chỉ chấp nhận object và bắt buộc
+AccountItem.propTypes = {
+    data: PropTypes.object.isRequired,
+};
 
 export default AccountItem;
