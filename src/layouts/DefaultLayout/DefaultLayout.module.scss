@@ -3,9 +3,20 @@
 }
 .wrapper {
     margin-top: var(--default-layout-header-height);
+    display: flex;
 }
 .container {
     width: 100vw;
+    height: 100vh;
     display: flex;
-    flex-direction: row;
+}
+.side-bar {
+    width: 246px;
+    height: 100%;
+}
+
+.main-content {
+    width: calc(100% - 246px);
+    display: flex;
+    justify-content: center;
 }

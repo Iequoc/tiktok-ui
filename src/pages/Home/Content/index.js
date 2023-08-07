@@ -18,15 +18,12 @@ function Content() {
                 />
             </div>
             <div className={cx('container-content')}>
-                <div className={cx('text-info-container')}>
+                <div className={cx('header')}>
                     <div className={cx('user-info')}>
-                        <h3 className={cx('nickname')}>
-                            {' '}
-                            lequoc2002{' '}
-                            <span>
-                                <FontAwesomeIcon className={cx('icon')} icon={faCheckCircle} />
-                            </span>
-                        </h3>
+                        <h3 className={cx('nickname')}>lequoc2002</h3>
+                        <span className={cx('check')}>
+                            <FontAwesomeIcon icon={faCheckCircle} />
+                        </span>
 
                         <h4 className={cx('name')}>Le Quoc</h4>
                     </div>
@@ -42,14 +39,12 @@ function Content() {
 
                         <p className={cx('hashtag')}>#lequoc</p>
                     </div>
-                    <p className={cx('music')}>
-                        {' '}
+                    <div className={cx('music')}>
                         <span>
-                            {' '}
                             <FontAwesomeIcon icon={faMusic} />
-                        </span>{' '}
-                        Nhac nen cua video
-                    </p>
+                        </span>
+                        <p> Nhac nen cua video</p>
+                    </div>
                 </div>
                 <div className={cx('wrapper-video')}>
                     {/* Video se duoc chieu o day */}
@@ -59,31 +54,33 @@ function Content() {
                             alt=""
                         />
                     </div>
-                    <div className={cx('btn-actions-for-video')}>
-                        <button className={cx('btn-item')}>
-                            <span>
-                                <FontAwesomeIcon icon={faHeart} />
-                            </span>
-                            <strong>890.4k</strong>
-                        </button>
-                        <button className={cx('btn-item')}>
-                            <span>
-                                <FontAwesomeIcon icon={faCommentDots} />
-                            </span>
-                            <strong>890.4k</strong>
-                        </button>
-                        <button className={cx('btn-item')}>
-                            <span>
-                                <SaveIcon />
-                            </span>
-                            <strong>890.4k</strong>
-                        </button>
-                        <button className={cx('btn-item')}>
-                            <span>
-                                <FontAwesomeIcon icon={faShare} />
-                            </span>
-                            <strong>890.4k</strong>
-                        </button>
+                    <div className={cx('container-actions')}>
+                        <div className={cx('btn-actions')}>
+                            <button className={cx('btn-item')}>
+                                <span>
+                                    <FontAwesomeIcon icon={faHeart} />
+                                </span>
+                                <strong>890.4k</strong>
+                            </button>
+                            <button className={cx('btn-item')}>
+                                <span>
+                                    <FontAwesomeIcon icon={faCommentDots} />
+                                </span>
+                                <strong>890.4k</strong>
+                            </button>
+                            <button className={cx('btn-item')}>
+                                <span>
+                                    <SaveIcon />
+                                </span>
+                                <strong>890.4k</strong>
+                            </button>
+                            <button className={cx('btn-item')}>
+                                <span>
+                                    <FontAwesomeIcon icon={faShare} />
+                                </span>
+                                <strong>890.4k</strong>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
