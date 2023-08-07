@@ -1,17 +1,20 @@
 .wrapper {
-    height: 100%;
-    display: flex block;
+    height: 100vh;
     left: 0px;
     flex-direction: column;
+    display: flex;
+    width: 240px;
+
     position: fixed;
 }
 
 .scroll-side-bar {
-    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 246px;
     padding: 20px 8px 0 8px;
-    overflow: auto;
-    visibility: hidden;
     padding-right: 8px;
+    visibility: hidden;
 }
 
 .inner-side-bar,
@@ -21,4 +24,24 @@
 
 ::-webkit-scrollbar {
     width: 6px !important;
+}
+.footer {
+    border-top: 1px solid rgba(22, 24, 35, 0.06);
+    padding: 16px 0 0 8px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    height: 350px;
+    color: rgba(22, 24, 35, 0.5);
+    .link-container {
+        margin-bottom: 8px;
+    }
+    a {
+        display: inline-block;
+        margin: 5px 6px 0 0;
+        color: rgba(22, 24, 35, 0.5);
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
 }
