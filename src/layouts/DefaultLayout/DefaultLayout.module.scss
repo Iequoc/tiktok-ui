@@ -1,16 +1,11 @@
+:root {
+    --width-sidebar: 246px;
+}
 .wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     margin-top: var(--default-layout-header-height);
 }
-
 .container {
-    width: var(--default-layout-width);
+    width: 100vw;
     display: flex;
-    max-width: 100%;
-}
-
-.content {
-    flex: 1;
+    flex-direction: row;
 }

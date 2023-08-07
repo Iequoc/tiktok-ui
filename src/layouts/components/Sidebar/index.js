@@ -31,14 +31,17 @@ function SideBar() {
 
     return (
         <aside className={cx('wrapper')}>
-            <Menu>
-                <MenuItem title="For you" to={config.routes.home} icon={<HomeIcon />} />
-                <MenuItem title="Following" to={config.routes.following} icon={<GroupUserIcon />} />
-                <MenuItem title="LIVE" to={config.routes.live} icon={<LiveIcon />} />
-            </Menu>
-
-            <SuggestedAccounts title="Suggested accounts" data={suggestedUsers} onSeeAll={handleSeeAll} />
-            <SuggestedAccounts title="Following accounts" />
+            <div className={cx('scroll-side-bar')}>
+                <div className={cx('inner-side-bar')}>
+                    <Menu>
+                        <MenuItem title="For you" to={config.routes.home} icon={<HomeIcon />} />
+                        <MenuItem title="Following" to={config.routes.following} icon={<GroupUserIcon />} />
+                        <MenuItem title="LIVE" to={config.routes.live} icon={<LiveIcon />} />
+                    </Menu>
+                    <SuggestedAccounts title="Suggested accounts" data={suggestedUsers} onSeeAll={handleSeeAll} />
+                    <SuggestedAccounts title="Following accounts" />
+                </div>
+            </div>
         </aside>
     );
 }

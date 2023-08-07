@@ -1,5 +1,24 @@
 .wrapper {
-    width: 232px;
-    min-height: 1000px;
+    height: 100%;
+    display: flex block;
+    left: 0px;
+    flex-direction: column;
+    position: fixed;
+}
+
+.scroll-side-bar {
+    width: 100%;
     padding: 20px 8px 0 8px;
+    overflow: auto;
+    visibility: hidden;
+    padding-right: 8px;
+}
+
+.inner-side-bar,
+.scroll-side-bar:hover {
+    visibility: visible;
+}
+
+::-webkit-scrollbar {
+    width: 6px !important;
 }
