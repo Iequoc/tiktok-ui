@@ -10,7 +10,7 @@ import * as userService from '~/services/userService';
 
 const cx = classNames.bind(styles);
 const INIT_PAGE = 1;
-const PER_PAGE = 5;
+const PER_PAGE = 8;
 
 function SideBar() {
     const [page, setPage] = useState(INIT_PAGE);
@@ -20,13 +20,19 @@ function SideBar() {
         userService
             .getSuggest({ page, perPage: PER_PAGE })
             .then((data) => {
-                setSuggestedUsers((prevUsers) => [...prevUsers, ...data]);
+                if (page === INIT_PAGE) {
+                    setSuggestedUsers(data);
+                } else setSuggestedUsers((prevUsers) => [...prevUsers, ...data]);
             })
             .catch((error) => console.log(error));
     }, [page]);
 
     const handleSeeAll = () => {
         setPage(page + 1);
+    };
+
+    const handleSeeLess = () => {
+        setPage(INIT_PAGE);
     };
 
     return (
@@ -39,7 +45,12 @@ function SideBar() {
                         <MenuItem title="Explore" to={config.routes.explore} icon={<CompassIcon />} />
                         <MenuItem title="LIVE" to={config.routes.live} icon={<LiveIcon />} />
                     </Menu>
-                    <SuggestedAccounts title="Following accounts" data={suggestedUsers} onSeeAll={handleSeeAll} />
+                    <SuggestedAccounts
+                        title="Following accounts"
+                        data={suggestedUsers}
+                        onSeeAll={handleSeeAll}
+                        onSeeLess={handleSeeLess}
+                    />
                     <div className={cx('footer')}>
                         <div className={cx('link-container')}>
                             <a href="..">About</a>

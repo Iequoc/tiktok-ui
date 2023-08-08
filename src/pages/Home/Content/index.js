@@ -17,6 +17,7 @@ function Content() {
                     alt="Le Quoc"
                 />
             </div>
+
             <div className={cx('container-content')}>
                 <div className={cx('header')}>
                     <div className={cx('user-info')}>
@@ -34,7 +35,7 @@ function Content() {
                     </Button>
                     <div className={cx('wrapper-desc')}>
                         <div>
-                            <span className={cx('desc-video')}>Mo ta video dha kdhs akdhasd hadhakdkhadk</span>
+                            <span className={cx('desc-video')}>Mô tả của video ở đây nhé</span>
                         </div>
 
                         <p className={cx('hashtag')}>#lequoc</p>
@@ -43,7 +44,7 @@ function Content() {
                         <span>
                             <FontAwesomeIcon icon={faMusic} />
                         </span>
-                        <p> Nhac nen cua video</p>
+                        <p> nhạc nền - Chỗ này để nhạc nền</p>
                     </div>
                 </div>
                 <div className={cx('wrapper-video')}>
