@@ -127,7 +127,7 @@ function Header() {
                             <Images
                                 className={cx('user-avatar')}
                                 alt="Le Quoc"
-                                src="https://scontent.fsgn2-6.fna.fbcdn.net/v/t39.30808-6/311445419_1199340923948887_6760918673147219910_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=qa1P-Uljui8AX_XTOBf&_nc_ht=scontent.fsgn2-6.fna&oh=00_AfB-sNk8M2x46wYKRcb84u2nvoR6PRLzg7yM5SPIEVSlAw&oe=64D024E4"
+                                src=""
                                 // fallBack ='' có thể custom một ảnh bất kỳ để thay thế nếu như ảnh lỗi bằng prop là fallBack
                                 fallBack="https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png"
                             />

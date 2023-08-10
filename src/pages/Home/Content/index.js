@@ -1,10 +1,11 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheckCircle, faCommentDots, faHeart, faMusic, faShare } from '@fortawesome/free-solid-svg-icons';
+
 import classNames from 'classnames/bind';
 import styles from './Content.module.scss';
 import { SaveIcon } from '~/components/Icons';
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheckCircle, faCommentDots, faHeart, faMusic, faShare } from '@fortawesome/free-solid-svg-icons';
 import Button from '~/components/Button';
+import Images from '~/components/Images';
 
 const cx = classNames.bind(styles);
 
@@ -12,7 +13,7 @@ function Content() {
     return (
         <div className={cx('wrapper')}>
             <div className={cx('avatar')}>
-                <img
+                <Images
                     src="https://scontent.fhan5-10.fna.fbcdn.net/v/t39.30808-6/311445419_1199340923948887_6760918673147219910_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=r1-5XAjcAUUAX_opLsv&_nc_ht=scontent.fhan5-10.fna&oh=00_AfD7E2-BVjtQbatOF2CULVDgkb4Gj6ddZlNYReli1ys9oA&oe=64D41964"
                     alt="Le Quoc"
                 />
