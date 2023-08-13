@@ -1,89 +1,39 @@
 import classNames from 'classnames/bind';
+
 import styles from './Explore.module.scss';
-import {
-    BagIcon,
-    BasketballIcon,
-    CarIcon,
-    CupIcon,
-    EarthIcon,
-    EmojiIcon,
-    FilmIcon,
-    GroupSolidICon,
-    HeartHomeIcon,
-    LikeIcon,
-    MicIcon,
-    PlayIcon,
-    TreeIcon,
-} from '~/components/Icons';
+import { LikeIcon, PlayIcon } from '~/components/Icons';
+
+import Header from './Header';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleLeft, faAngleRight, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import { useEffect, useState } from 'react';
 
 const cx = classNames.bind(styles);
 
 function Explore() {
+    const [sidebarHeader, setSidebarHeader] = useState(true);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setSidebarHeader(window.scrollY <= 200);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        //Clean up Function
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
     return (
         <div className={cx('wrapper')}>
-            <div className={cx('category-list-wrapper')}>
-                <div className={cx('btn-left')}>
-                    <div className={cx('icon')}>
-                        <FontAwesomeIcon icon={faAngleLeft} />
-                    </div>
-                    <div className={cx('container')}></div>
-                </div>
+            <Header
+                className={cx({
+                    show: sidebarHeader,
+                })}
+            />
 
-                <div className={cx('category-container')}>
-                    <div className={cx('category-item')}>
-                        <MicIcon />
-                        <span>Dance and Music</span>
-                    </div>
-                    <div className={cx('category-item')}>
-                        <BasketballIcon />
-                        <span>Sports</span>
-                    </div>
-                    <div className={cx('category-item')}>
-                        <EmojiIcon />
-                        <span>Entertainment</span>
-                    </div>
-                    <div className={cx('category-item')}>
-                        <FilmIcon />
-                        <span>Comedy and Drama</span>
-                    </div>
-                    <div className={cx('category-item')}>
-                        <CarIcon />
-                        <span>Autos</span>
-                    </div>
-                    <div className={cx('category-item')}>
-                        <BagIcon />
-                        <span>Fashion</span>
-                    </div>
-                    <div className={cx('category-item')}>
-                        <CupIcon />
-                        <span>Lifestyle</span>
-                    </div>
-                    <div className={cx('category-item')}>
-                        <TreeIcon />
-                        <span>Pets and Nature</span>
-                    </div>
-                    <div className={cx('category-item')}>
-                        <HeartHomeIcon />
-                        <span>Relationships</span>
-                    </div>
-                    <div className={cx('category-item')}>
-                        <GroupSolidICon />
-                        <span>Society</span>
-                    </div>
-                    <div className={cx('category-item')}>
-                        <EarthIcon />
-                        <span>Informative</span>
-                    </div>
-                </div>
-                <div className={cx('btn-right')}>
-                    <div className={cx('icon')}>
-                        <FontAwesomeIcon icon={faAngleRight} />
-                    </div>
-                    <div className={cx('container')}></div>
-                </div>
-            </div>
             <div className={cx('container-content')}>
                 <div className={cx('list-video-item')}>
                     <div className={cx('video-item')}>

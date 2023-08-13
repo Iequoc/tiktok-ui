@@ -1,0 +1,24 @@
+.item {
+    background-color: rgba(22, 24, 35, 0.06);
+    border-radius: 8px;
+
+    height: 40px;
+    padding: 0 11px;
+    margin-right: 12px;
+
+    align-items: center;
+    white-space: nowrap;
+    cursor: pointer;
+    display: flex;
+
+    &:hover {
+        background-color: rgba(22, 24, 35, 0.1);
+    }
+
+    span {
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 24px;
+        margin-left: 6px;
+    }
+}
