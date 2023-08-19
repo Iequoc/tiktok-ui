@@ -1,0 +1,124 @@
+.wrapper {
+    --height-live-container: calc(100% - 60px);
+
+    width: 100%;
+    height: var(--height-live-container);
+
+    margin: var(--default-layout-header-height) 24px 0 24px;
+
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.tabs-wrapper {
+    width: 100%;
+    height: 24px;
+
+    z-index: 2;
+    position: relative;
+
+    background-color: var(--white);
+}
+
+.tabs-container {
+    left: 50%;
+
+    width: 96px;
+    height: 16px;
+
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+
+    position: absolute;
+
+    background-color: rgba(241, 241, 241, 1);
+
+    .tabs {
+        height: 100%;
+
+        padding: 0 16px;
+
+        display: flex;
+        align-items: center;
+
+        cursor: pointer;
+
+        .tab-item {
+            width: 24px;
+            height: 4px;
+
+            margin: 0 4px;
+
+            border-radius: 14px;
+
+            background-color: rgba(22, 24, 35, 1);
+        }
+    }
+}
+
+.button {
+    top: calc(var(--height-live-container) - 60%);
+    right: 24px;
+
+    width: 36px;
+    height: 80px;
+
+    display: flex;
+    flex-direction: column;
+
+    z-index: 2;
+    position: absolute;
+
+    cursor: pointer;
+
+    .switch-live {
+        flex: 1;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        background-color: rgba(37, 37, 37, 0.6);
+
+        &:hover {
+            background-color: rgba(84, 84, 84, 0.5);
+        }
+    }
+
+    .prev {
+        border-radius: 100px 100px 0 0;
+
+        color: rgba(255, 255, 255, 0.34); // disabled
+        //  color: rgb(255, 255, 255); --- available
+    }
+
+    .next {
+        border-radius: 0 0 100px 100px;
+
+        color: rgb(255, 255, 255);
+    }
+}
+
+.live-container {
+    width: 100%;
+
+    flex: 1;
+
+    z-index: 1;
+    position: relative;
+}
+
+.list-live-video {
+    top: 0;
+    width: 100%;
+    height: calc(var(--height-live-container) + 12px);
+
+    border-radius: 4px;
+
+    position: absolute;
+}

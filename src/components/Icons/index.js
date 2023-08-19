@@ -322,3 +322,106 @@ export const LikeIcon = ({ className, width = '2rem', height = '2rem' }) => (
         <path d="M24 11.84c-4.42-4.17-10.84-4.07-14.97 0a10.9 10.9 0 0 0 0 15.58l13.4 13.18c.87.87 2.27.87 3.15 0l13.4-13.18a10.9 10.9 0 0 0 0-15.58c-4.14-4.07-10.56-4.17-14.98 0Zm-2.53 3.86.06.07L24 18.2l2.47-2.43.06-.07c2.74-3.17 6.77-3.13 9.29-.65a6.4 6.4 0 0 1 0 9.16L24 35.84 12.18 24.21a6.4 6.4 0 0 1 0-9.16c2.52-2.48 6.55-2.52 9.3.65Z"></path>
     </svg>
 );
+
+export const ToggleIconWrapperL = ({ className, width = '4.35', height = '15.8' }) => (
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 5 16"
+        className={className}
+        width={width}
+        height={height}
+    >
+        <path
+            fill="black"
+            fillOpacity="0.32"
+            d="M1.688.371A.592.592 0 00.92.042L.373.26a.592.592 0 00-.33.77l2.353 6.648c.057.142.057.3 0 .441L.043 14.767a.592.592 0 00.33.77l.547.218a.592.592 0 00.768-.329L4.306 8.12a.592.592 0 000-.44L1.688.37z"
+            opacity="0.6"
+        ></path>
+    </svg>
+);
+
+export const ToggleIconWrapperR = ({ className, width = '4.35', height = '15.8' }) => (
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 5 16"
+        className={className}
+        width={width}
+        height={height}
+    >
+        <path
+            fill="black"
+            fill-opacity="0.32"
+            d="M1.688.371A.592.592 0 00.92.042L.373.26a.592.592 0 00-.33.77l2.353 6.648c.057.142.057.3 0 .441L.043 14.767a.592.592 0 00.33.77l.547.218a.592.592 0 00.768-.329L4.306 8.12a.592.592 0 000-.44L1.688.37z"
+            opacity="0.6"
+        ></path>
+    </svg>
+);
+
+export const SvgLiveIcon = ({ className, width = 24, height = 24 }) => (
+    <svg
+        width={width}
+        height={height}
+        className={className}
+        viewBox="0 0 20 20"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <rect x="4.1665" y="4.16797" width="2.69231" height="11.6667" rx="0.5" fill="rgba(255, 255, 255, 1)"></rect>
+        <rect x="8.65381" y="9.02734" width="2.69231" height="6.80555" rx="0.5" fill="rgba(255, 255, 255, 1)"></rect>
+        <rect x="13.1406" y="7.08594" width="2.69231" height="8.75" rx="0.5" fill="rgba(255, 255, 255, 1)"></rect>
+    </svg>
+);
+
+export const PlaySolidIcon = ({ className, width = '1.8rem', height = '1.8rem' }) => (
+    <svg
+        width={width}
+        height={height}
+        className={className}
+        data-e2e=""
+        viewBox="0 0 48 48"
+        fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M12 8.77702C12 6.43812 14.5577 4.99881 16.5569 6.21266L41.6301 21.4356C43.5542 22.6038 43.5542 25.3962 41.6301 26.5644L16.5569 41.7873C14.5577 43.0012 12 41.5619 12 39.223V8.77702Z"
+        ></path>
+    </svg>
+);
+
+export const ReloadIcon = ({ className, width = '1.4rem', height = '1.4rem' }) => (
+    <svg
+        width={width}
+        height={height}
+        className={className}
+        viewBox="0 0 48 48"
+        fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M36.6 30.12c.2-.42.65-.67 1.11-.59l4.08.72c.6.1.97.73.74 1.3A20 20 0 1138.18 9.9l.6-3.35a1 1 0 011.15-.81l3.94.7c.55.09.9.6.81 1.15l-2.26 12.8a1 1 0 01-1.15.81l-12.8-2.25a1 1 0 01-.82-1.16l.7-3.94a1 1 0 011.16-.81l4.02.7a14 14 0 103.06 16.37z"
+        ></path>
+    </svg>
+);
+
+export const MuteVolumeIcon = ({ className, width = '1.8rem', height = '1.8rem' }) => (
+    <svg
+        width={width}
+        height={height}
+        className={className}
+        viewBox="0 0 48 48"
+        fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M25 10.87a3 3 0 00-4.66-2.5L10.39 17H6a3 3 0 00-3 3v8a3 3 0 003 3h4.4l9.94 8.63a3 3 0 004.66-2.5V10.87zm4.3 7.25L35.16 24l-5.88 5.88a1 1 0 000 1.41l1.42 1.42a1 1 0 001.41 0L38 26.83l5.88 5.88a1 1 0 001.41 0l1.42-1.42a1 1 0 000-1.41L40.83 24l5.88-5.88a1 1 0 000-1.41l-1.42-1.42a1 1 0 00-1.41 0L38 21.17l-5.88-5.88a1 1 0 00-1.41 0l-1.42 1.42a1 1 0 000 1.41z"
+        ></path>
+    </svg>
+);

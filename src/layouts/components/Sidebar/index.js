@@ -1,10 +1,11 @@
 import classNames from 'classnames/bind';
 import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
 import styles from './Sidebar.module.scss';
 import config from '~/config';
 import Menu, { MenuItem } from './Menu';
-import { HomeIcon, GroupUserIcon, LiveIcon, CompassIcon } from '~/components/Icons';
+import { HomeIcon, GroupUserIcon, LiveIcon, CompassIcon, ToggleIconWrapperL } from '~/components/Icons';
 import SuggestedAccounts from '~/components/SuggestedAccounts';
 import * as userService from '~/services/userService';
 
@@ -35,6 +36,25 @@ function SideBar() {
         setPage(INIT_PAGE);
     };
 
+    const location = useLocation();
+
+    const pageLive = (
+        <SuggestedAccounts
+            title="Following accounts"
+            data={suggestedUsers}
+            onSeeAll={handleSeeAll}
+            onSeeLess={handleSeeLess}
+        />
+    );
+
+    const ToggleWrapper = (
+        <div className={cx('container-toggle-wrapper')}>
+            <div className={cx('button')}>
+                <ToggleIconWrapperL />
+            </div>
+        </div>
+    );
+
     return (
         <aside className={cx('wrapper')}>
             <div className={cx('scroll-side-bar')}>
@@ -45,12 +65,17 @@ function SideBar() {
                         <MenuItem title="Explore" to={config.routes.explore} icon={<CompassIcon />} />
                         <MenuItem title="LIVE" to={config.routes.live} icon={<LiveIcon />} />
                     </Menu>
+                    {/* LIVE page: The following accounts are live streaming (if any)*/}
+                    {location.pathname === '/live' ? pageLive : ''}
+
+                    {/* LIVE page: Show suggest host are live streaming */}
                     <SuggestedAccounts
-                        title="Following accounts"
+                        title={location.pathname === '/live' ? 'Suggested hosts' : 'Following accounts'}
                         data={suggestedUsers}
                         onSeeAll={handleSeeAll}
                         onSeeLess={handleSeeLess}
                     />
+
                     <div className={cx('footer')}>
                         <div className={cx('link-container')}>
                             <a href="..">About</a>
@@ -83,6 +108,7 @@ function SideBar() {
                     </div>
                 </div>
             </div>
+            {location.pathname === '/live' ? ToggleWrapper : ''}
         </aside>
     );
 }

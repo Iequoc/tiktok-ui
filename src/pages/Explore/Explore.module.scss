@@ -1,4 +1,5 @@
 .wrapper {
+    margin-top: var(--default-layout-header-height);
     min-height: calc(100vh - 59px);
     padding: 0 46px;
     display: flex;
@@ -34,7 +35,7 @@
 .video {
     width: 100%;
     position: relative;
-
+    z-index: -1;
     img {
         max-width: 262px;
         border-radius: 8px;
