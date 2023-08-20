@@ -19,6 +19,15 @@
         z-index: 1;
         position: absolute;
     }
+
+    &:hover {
+        .player-details {
+            transform: translateY(0px);
+        }
+        .player-footer-container {
+            opacity: 100;
+        }
+    }
 }
 
 .feed-player-controls {
@@ -41,10 +50,16 @@
         display: flex;
         justify-content: center;
         align-items: flex-end;
+
+        &:hover .tip-container {
+            visibility: visible;
+        }
     }
 }
 
 .tip-container {
+    visibility: hidden;
+
     flex: 1;
     display: flex;
     align-items: center;
@@ -163,6 +178,13 @@
 
     color: var(--white);
 
+    transform: translateY(35px);
+    transition: all 150ms linear 0s;
+
+    &:hover {
+        transform: translateY(0px);
+    }
+
     .status-player {
         width: 40px;
         height: 20px;
@@ -207,9 +229,11 @@
     z-index: 1;
     position: relative;
 
+    opacity: 0;
+    transition: opacity 150ms linear 0s;
+
     .control-bar {
         height: 40px;
-
         margin: 0 14px;
         display: flex;
         align-items: center;
@@ -232,6 +256,13 @@
 
                 position: relative;
                 cursor: pointer;
+            }
+
+            //tippy messages auto play
+            .tip-messages {
+                font-size: 1.4rem;
+                font-weight: 400;
+                text-align: center;
             }
 
             // content right
@@ -278,12 +309,16 @@
                 cursor: pointer;
 
                 .slider-volume {
+                    opacity: 0;
+
                     top: -70px;
                     left: -29px;
 
                     rotate: 90deg;
 
                     position: absolute;
+
+                    transition: opacity 150ms linear 0s;
 
                     .volume-bar {
                         width: 100px;
@@ -334,6 +369,11 @@
                     align-items: center;
 
                     background-color: rgba(37, 37, 37, 0.6);
+                }
+                &:hover {
+                    .slider-volume {
+                        opacity: 100;
+                    }
                 }
             }
         }

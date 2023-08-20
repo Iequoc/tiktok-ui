@@ -1,4 +1,5 @@
 import classNames from 'classnames/bind';
+import Tippy from '@tippyjs/react';
 import { useEffect, useRef } from 'react';
 
 import styles from './ItemPlayer.module.scss';
@@ -60,12 +61,22 @@ function ItemPlayer(props) {
                             </div>
                         </div>
                         <div className={cx('inner-controller')}>
-                            <div className={cx('auto-play-container')}>
-                                <div className={cx('icon-auto-play')}>
-                                    Auto-play:
-                                    <span className={cx('btn-auto-play')}>Off</span>
+                            <Tippy
+                                interactive
+                                delay={[0, 50]}
+                                content="You will automatically watch in this LIVE in 20 seconds"
+                                placement="top"
+                                className={cx('tip-messages')}
+                                maxWidth={200}
+                            >
+                                <div className={cx('auto-play-container')}>
+                                    <div className={cx('icon-auto-play')}>
+                                        Auto-play:
+                                        <span className={cx('btn-auto-play')}>Off</span>
+                                    </div>
                                 </div>
-                            </div>
+                            </Tippy>
+
                             <div className={cx('volume')}>
                                 <div className={cx('slider-volume')}>
                                     <div className={cx('volume-bar')}>

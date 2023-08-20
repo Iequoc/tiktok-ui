@@ -19,6 +19,11 @@ function Live() {
     let [countItems, setCountItems] = useState(0);
     let [positionCurrent, setPositionCurrent] = useState(0);
 
+    //tabs
+    let [active, setActive] = useState(true);
+
+    const handleSetTab = () => {};
+
     const handleGetHeight = (height) => {
         if (height) {
             heightItem += height;
@@ -72,8 +77,16 @@ function Live() {
             <div className={cx('tabs-wrapper')}>
                 <div className={cx('tabs-container')}>
                     <div className={cx('tabs')}>
+                        <div className={cx('tab-item', { active: active })}></div>
                         <div className={cx('tab-item')}></div>
-                        <div className={cx('tab-item')}></div>
+                    </div>
+                </div>
+                <div className={cx('showed-tabs')}>
+                    <div className={cx('feed-tab', 'feed-active')}>
+                        <span>For You</span>
+                    </div>
+                    <div className={cx('feed-tab')} onClick={handleSetTab}>
+                        <span>Following</span>
                     </div>
                 </div>
             </div>
