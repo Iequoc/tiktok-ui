@@ -10,15 +10,14 @@ const cx = classNames.bind(styles);
 
 function Live() {
     let heightItem = 24;
+
     let ref = useRef();
     let prev = useRef();
     let next = useRef();
+
     let [disabled, setDisabled] = useState(true);
     let [countItems, setCountItems] = useState(0);
-
     let [positionCurrent, setPositionCurrent] = useState(0);
-
-    // console.log(heightItem);
 
     const handleGetHeight = (height) => {
         if (height) {
@@ -38,7 +37,6 @@ function Live() {
         };
         const handlePrev = () => {
             setCountItems(countItems - 1);
-            console.log(countItems);
             if (countItems >= 1) {
                 setPositionCurrent(positionCurrent + heightItem);
                 ref.current.style = `transform: translateY(${positionCurrent + heightItem}px)`;
@@ -53,28 +51,21 @@ function Live() {
             btnPrev[0].addEventListener('click', handlePrev);
         }
 
+        //clean up function
+
         return () => {
-            btnNext[0].removeEventListener('click', handleNext);
-            if (disabled === false) {
-                btnPrev[0].removeEventListener('click', handlePrev);
+            if (btnNext[0]) {
+                btnNext[0].removeEventListener('click', handleNext);
+            }
+
+            if (btnPrev[0]) {
+                if (disabled === false) {
+                    btnPrev[0].removeEventListener('click', handlePrev);
+                }
             }
         };
-        // console.log(positionCurrent);
         // eslint-disable-next-line
     }, [positionCurrent]);
-
-    // useEffect(() => {
-    //     // console.log(prev.current);
-    //     // console.log(next.current.className);
-    // }, [positionCurrent]);
-
-    // const handleClick = () => {
-    //     if (ref) {
-    //         const test = ref.current;
-    //         test.style = `transform: translateY(${setPositionCurrent(positionCurrent - 1)}px)`;
-    //     }
-    // };
-    console.log('re-render');
 
     return (
         <div className={cx('wrapper')}>
