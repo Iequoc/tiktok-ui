@@ -83,6 +83,7 @@
         justify-content: center;
         align-items: center;
 
+        color: rgb(255, 255, 255);
         background-color: rgba(37, 37, 37, 0.6);
 
         &:hover {
@@ -90,17 +91,21 @@
         }
     }
 
+    //custom button styles
+    .disabled {
+        color: rgba(255, 255, 255, 0.34);
+        cursor: not-allowed;
+        &:hover {
+            background-color: rgba(37, 37, 37, 0.6);
+        }
+    }
+
     .prev {
         border-radius: 100px 100px 0 0;
-
-        color: rgba(255, 255, 255, 0.34); // disabled
-        //  color: rgb(255, 255, 255); --- available
     }
 
     .next {
         border-radius: 0 0 100px 100px;
-
-        color: rgb(255, 255, 255);
     }
 }
 

@@ -1,12 +1,27 @@
-import styles from './ItemPlayer.module.scss';
 import classNames from 'classnames/bind';
+import { useEffect, useRef } from 'react';
+
+import styles from './ItemPlayer.module.scss';
 import { GroupSolidICon, MuteVolumeIcon, PlaySolidIcon, ReloadIcon, SvgLiveIcon } from '~/components/Icons';
 
 const cx = classNames.bind(styles);
 
-function ItemPlayer() {
+function ItemPlayer(props) {
+    let ref = useRef();
+
+    const getHeightItem = props.getHeight;
+
+    useEffect(() => {
+        if (ref.current) {
+            let height = ref.current.offsetHeight;
+            if (getHeightItem) {
+                getHeightItem(height);
+            }
+        }
+    }, [getHeightItem]);
+
     return (
-        <div className={cx('item')}>
+        <div ref={ref} className={cx('item')}>
             <div className={cx('feed-player-controls')}>
                 <div className={cx('tips')}>
                     <div className={cx('tip-container')}>
