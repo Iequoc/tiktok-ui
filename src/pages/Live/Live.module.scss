@@ -102,35 +102,34 @@
     animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
 
     cursor: pointer;
+}
+.feed-tab {
+    width: 132px;
+    height: 30px;
 
-    .feed-tab {
-        width: 132px;
-        height: 30px;
+    margin: 4px;
+    border-radius: 100px;
 
-        margin: 4px;
-        border-radius: 100px;
+    font-size: 1.5rem;
+    font-weight: 600;
 
-        font-size: 1.5rem;
-        font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    background-color: var(--background-color-hover);
 
-        background-color: var(--background-color-hover);
-
-        &:hover {
-            background-color: rgba(22, 24, 35, 0.06);
-        }
+    &:hover {
+        background-color: rgba(22, 24, 35, 0.06);
     }
+}
 
-    .feed-active {
-        color: var(--white);
-        background-color: black;
+.active {
+    color: var(--white);
+    background-color: black;
 
-        &:hover {
-            color: black;
-        }
+    &:hover {
+        color: black;
     }
 }
 

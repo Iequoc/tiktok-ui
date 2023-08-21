@@ -1,24 +1,27 @@
 .item {
-    background-color: rgba(22, 24, 35, 0.06);
-    border-radius: 8px;
-
     height: 40px;
+
     padding: 0 11px;
     margin-right: 12px;
 
+    display: flex;
     align-items: center;
     white-space: nowrap;
+
+    border-radius: 8px;
+    background-color: rgba(22, 24, 35, 0.06);
+
     cursor: pointer;
-    display: flex;
 
     &:hover {
         background-color: rgba(22, 24, 35, 0.1);
     }
 
     span {
+        margin-left: 6px;
+
         font-size: 16px;
         font-weight: 700;
         line-height: 24px;
-        margin-left: 6px;
     }
 }

@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
 import Tippy from '@tippyjs/react';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import styles from './ItemPlayer.module.scss';
 import { GroupSolidICon, MuteVolumeIcon, PlaySolidIcon, ReloadIcon, SvgLiveIcon } from '~/components/Icons';
@@ -9,6 +9,10 @@ const cx = classNames.bind(styles);
 
 function ItemPlayer(props) {
     let ref = useRef();
+    let refAutoPlay = useRef();
+    let refContainerBtnAuto = useRef();
+
+    const [btnAuto, setBtnAuto] = useState(false);
 
     const getHeightItem = props.getHeight;
 
@@ -20,6 +24,22 @@ function ItemPlayer(props) {
             }
         }
     }, [getHeightItem]);
+
+    useEffect(() => {
+        const handleChangeState = () => {
+            const btnAutoPlay = document.getElementsByClassName(refAutoPlay.current.className);
+            setBtnAuto(!btnAuto);
+            btnAutoPlay.style = 'color: #fff';
+        };
+
+        let refCurrent = refContainerBtnAuto.current;
+        refCurrent.addEventListener('click', handleChangeState);
+        return () => {
+            refCurrent.removeEventListener('click', handleChangeState);
+        };
+    }, [btnAuto]);
+
+    console.log('re-render');
 
     return (
         <div ref={ref} className={cx('item')}>
@@ -61,21 +81,29 @@ function ItemPlayer(props) {
                             </div>
                         </div>
                         <div className={cx('inner-controller')}>
-                            <Tippy
-                                interactive
-                                delay={[0, 50]}
-                                content="You will automatically watch in this LIVE in 20 seconds"
-                                placement="top"
-                                className={cx('tip-messages')}
-                                maxWidth={200}
-                            >
-                                <div className={cx('auto-play-container')}>
-                                    <div className={cx('icon-auto-play')}>
-                                        Auto-play:
-                                        <span className={cx('btn-auto-play')}>Off</span>
+                            <div>
+                                <Tippy
+                                    interactive
+                                    delay={[0, 50]}
+                                    content="You will automatically watch in this LIVE in 20 seconds"
+                                    placement="top"
+                                    className={cx('tip-messages')}
+                                    maxWidth={200}
+                                >
+                                    <div ref={refContainerBtnAuto} className={cx('auto-play-container')}>
+                                        <div className={cx('icon-auto-play')}>
+                                            Auto-play:
+                                            <span
+                                                ref={refAutoPlay}
+                                                className={cx('btn-auto-play')}
+                                                style={btnAuto ? { color: '#fff' } : {}}
+                                            >
+                                                {btnAuto ? 'On' : 'Off'}
+                                            </span>
+                                        </div>
                                     </div>
-                                </div>
-                            </Tippy>
+                                </Tippy>
+                            </div>
 
                             <div className={cx('volume')}>
                                 <div className={cx('slider-volume')}>

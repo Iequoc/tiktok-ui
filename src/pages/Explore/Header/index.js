@@ -36,23 +36,40 @@ const listTitles = [
 ];
 
 function Header({ className }) {
+    const header = document.getElementsByClassName('header');
+
+    // active items sidebar header
+    const [type, setType] = useState('Dance and Music');
+
+    // Scroll Left after click button
+    const [position, setPosition] = useState(0);
+    const rangeIncreasePosition = 300;
+
+    const handleScrollRight = () => {
+        setPosition((header[0].scrollLeft = position + rangeIncreasePosition));
+    };
+
+    const handleScrollLeft = () => {
+        setPosition((header[0].scrollLeft = position - rangeIncreasePosition));
+    };
+
+    // show hidden buttons
     const [buttonLeft, setButtonLeft] = useState(false);
     const [buttonRight, setButtonRight] = useState(true);
-    const [type, setType] = useState('Dance and Music');
 
     useEffect(() => {
         const handleScrollX = () => {
             setButtonLeft(header[0].scrollLeft >= 10);
             setButtonRight(header[0].scrollLeft <= 580);
         };
-        const header = document.getElementsByClassName('header');
+
         header[0].addEventListener('scroll', handleScrollX);
-    }, []);
+    }, [header]);
 
     return (
         <div className={cx('category-list-wrapper', className)}>
             {buttonLeft && (
-                <div className={cx('btn-left')}>
+                <div className={cx('btn-left')} onClick={handleScrollLeft}>
                     <div className={cx('icon')}>
                         <FontAwesomeIcon icon={faAngleLeft} />
                     </div>
@@ -60,7 +77,7 @@ function Header({ className }) {
                 </div>
             )}
             {buttonRight && (
-                <div className={cx('btn-right')}>
+                <div className={cx('btn-right')} onClick={handleScrollRight}>
                     <div className={cx('icon')}>
                         <FontAwesomeIcon icon={faAngleRight} />
                     </div>
